@@ -31,25 +31,26 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-slate-500">
-      <h1 className="text-2xl font-bold mb-6">WallPapers by Caveman</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {images.length > 0 ? (
-          images.map((url, index) => (
-            <div key={index} className="rounded-lg overflow-hidden shadow-lg">
-              {/* Added a key and fixed the return inside map */}
-              <img
-                src={url}
-                alt={`Wallpaper ${index}`}
-                className="w-full h-auto"
-              />
+      <main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {images.map((url, index) => (
+          <div
+            key={index}
+            className="group relative rounded-xl overflow-hidden bg-slate-800 aspect-video shadow-2xl transition-transform hover:scale-[1.02]"
+          >
+            <img
+              src={url}
+              alt="Wallpaper"
+              className="w-full h-full object-cover"
+            />
+            {/* Subtle overlay on hover */}
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <button className="bg-white text-black px-4 py-2 rounded-full font-bold">
+                View Fullscreen
+              </button>
             </div>
-          ))
-        ) : (
-          <p>No wallpapers found. Try uploading some!</p>
-        )}
-      </div>
-    </div>
+          </div>
+        ))}
+      </main>
   );
 }

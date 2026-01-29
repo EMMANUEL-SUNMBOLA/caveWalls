@@ -1,8 +1,20 @@
+// /** @type {import('tailwindcss').Config} */
+// export default {
+//   content: ["./src/**/*.{html,js}"],
+//   theme: {
+//     extend: {},
+//   },
+//   plugins: [],
+// }
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}", // This tells Tailwind to look at ALL files in src
+  ],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
