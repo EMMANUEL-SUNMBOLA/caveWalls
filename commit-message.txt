@@ -1,0 +1,7 @@
+feat: add image upload functionality and fullscreen view
+
+* Add image upload form with preview functionality using Supabase storage
+* Implement image preview popup in AddForm component
+* Add fullscreen view option for wallpapers in Home component
+* Improve Modal component styling and close button positioning
+* Add proper state management for upload status and messages
