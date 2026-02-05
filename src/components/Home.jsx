@@ -35,7 +35,11 @@ export default function Home() {
 
   const handleAddWall = () => {
     showModal(<AddForm />);
-    console.log("caveman");
+    // console.log("caveman");
+  };
+
+  const fullScreen = (url) => {
+    showModal(<img src={url} />);
   };
 
   return (
@@ -53,7 +57,12 @@ export default function Home() {
             />
             {/* Subtle overlay on hover */}
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <button className="bg-white text-black px-4 py-2 rounded-full font-bold">
+              <button
+                onClick={() => {
+                  fullScreen(url);
+                }}
+                className="bg-white text-black px-4 py-2 rounded-full font-bold"
+              >
                 View Fullscreen
               </button>
             </div>
