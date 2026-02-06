@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
-import { useAlertStore } from "../store/alertStore";
-import AddForm from "./AddForm";
+import { supabase } from "@/lib/supabase";
+import { useAlertStore } from "@/store/alertStore";
+import AddForm from "@/components/ui/AddForm";
 
 export default function Home() {
   const [images, setImages] = useState([]);

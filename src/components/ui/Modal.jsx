@@ -1,4 +1,4 @@
-import { useAlertStore } from "../store/alertStore";
+import { useAlertStore } from "@/store/alertStore";
 import React from "react";
 // import { X } from 'lucide-react';
 // import { useAlertStore } from '@/store/alertStore';

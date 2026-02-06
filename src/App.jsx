@@ -1,7 +1,7 @@
 import React from "react";
-import Modal from "./components/Modal";
-import Home from "./components/Home";
-import { useAlertStore } from "./store/alertStore";
+import Modal from "@/components/ui/Modal";
+import Home from "@/pages//Home";
+import { useAlertStore } from "@/store/alertStore";
 
 export default function App() {
 

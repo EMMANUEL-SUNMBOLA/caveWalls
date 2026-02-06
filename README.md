@@ -1,18 +1,16 @@
-# caveWalls
-## React + Vite + SUPABASE + SHADCN + TAILWIND
-### The IDEA
-- A website where everyone can share their favorite wallpapers
+# React + Vite
 
-- connect their wallet so they can get credit or be tipped
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-- add adSense to the website, then reward the most saved wallpapers uploader
+Currently, two official plugins are available:
 
-- pinterest style grids, minimalist, no long stress, just visit site, connect wallet if you want to, download free walls
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## ROADMAP
+## React Compiler
 
-- `GOAL`: Fully working wallpaper website before adding the crypto part
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- `PAGES`:
-`/` - home page, infinite grid with endless wallpapers, `/wall/:id` - search for a specific wallpaper by id, `/upload` - upload page for creators, `/profile/:username` - creator profile
-- `REQ`: Masonry grid layouts, Lazy loading images, Download button mechanism, an `algorithm` to decide what conetent to display first
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

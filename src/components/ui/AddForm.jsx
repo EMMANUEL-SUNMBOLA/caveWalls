@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { supabase } from "../lib/supabase";
+import { supabase } from "@/lib/supabase";
+import { useAlertStore } from "../../store/alertStore";
 
 export default function AddForm() {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [status, setStatus] = useState("idle"); // idle | uploading | success | error
   const [message, setMessage] = useState("");
+  const { hideModal } = useAlertStore();
 
   // generate preview when file changes
   useEffect(() => {
