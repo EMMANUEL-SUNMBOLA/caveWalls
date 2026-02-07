@@ -72,7 +72,7 @@ export default function Home() {
 
       <div
         onClick={handleAddWall}
-        className="absolute bottom-8 right-8  bg-green-300 p-6 rounded-sm hover:bg-white/20 hover:border hover:border-green-300"
+        className="fixed bottom-5 right-5  bg-green-300 p-4 rounded-sm hover:bg-white/20 hover:border hover:border-green-300"
       >
         <p className="text-3xl font-bold">+</p>
       </div>
