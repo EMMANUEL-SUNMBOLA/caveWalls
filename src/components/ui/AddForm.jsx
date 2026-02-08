@@ -63,7 +63,7 @@ export default function AddForm() {
   };
 
   return (
-    <div className="w-[80%] h-[80vh] bg-white p-6">
+    <div className="w-[80vw] h-[80vh] bg-white p-6 rounded-lg">
       <h1 className="text-xl font-semibold mb-4">Add new wallpaper</h1>
 
       <input
@@ -75,15 +75,17 @@ export default function AddForm() {
 
       {/* POPUP */}
       {preview && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div className="mt-3 flex items-center border border-purple-700 rounded-lg justify-center z-50">
           <div className="bg-white rounded-lg p-5 w-[400px]">
             <h2 className="font-semibold mb-3">Preview wallpaper</h2>
 
-            <img
-              src={preview}
-              alt="Preview"
-              className="w-full h-48 object-cover rounded-md mb-4"
-            />
+            <div className="border border-1">
+              <img
+                src={preview}
+                alt="Preview"
+                className="w-full h-48 object-cover rounded-md mb-4"
+              />
+            </div>
 
             {status === "success" && (
               <p className="text-green-600 text-sm mb-2">{message}</p>
@@ -93,7 +95,7 @@ export default function AddForm() {
               <p className="text-red-600 text-sm mb-2">{message}</p>
             )}
 
-            <div className="flex justify-end gap-2">
+            <div className="flex flex-1 justify-end gap-2">
               <button
                 onClick={() => setFile(null)}
                 disabled={status === "uploading"}
