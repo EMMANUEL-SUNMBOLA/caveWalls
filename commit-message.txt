@@ -1,0 +1,9 @@
+feat: add authentication scaffolding with login page and routing
+
+* Added react-router-dom for client-side routing
+* Created Login page with email/password form validation
+* Added reusable Input component with password toggle and error states
+* Implemented useInput and useDebouncedInput custom hooks for form handling
+* Added validateInputs utility for multi-field validation
+* Set up auth store structure with Zustand
+* Configured centralized routes module for app navigation
