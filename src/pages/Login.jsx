@@ -5,8 +5,16 @@ import { Input } from "@/components/ui/input";
 import { useInput } from "../hooks/useInput";
 import { validateInputs } from "../hooks/useInputValidation";
 import { User } from "lucide-react";
+import { useAuthStore } from "../store/authStore";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const login = useAuthStore((s) => s.login);
+  const isLoading = useAuthStore((s) => s.isLoading);
+  const user = useAuthStore((s) => s.user);
+  const error = useAuthStore((s) => s.error);
+  const navigate = useNavigate();
+
   const emailInput = useInput("", {
     tomatch: new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
     id: "email",
@@ -20,6 +28,17 @@ export default function Login() {
     id: "password",
     message: "please enter a stronger password",
   });
+
+  const handleLoginClick = async () => {
+    const result = await login(
+      emailInput.value.trim(),
+      passwordInput.value.trim(),
+    );
+
+    if (result.authenticated) {
+      navigate("/dashboard");
+    }
+  };
 
   const isValid = validateInputs([emailInput, passwordInput]);
   return (
@@ -42,12 +61,20 @@ export default function Login() {
             <Input
               label="Password"
               password={true}
-              placeholder="********"
+              placeholder="* * * * * * * *"
               {...passwordInput}
             />
-            <Button disabled={!isValid} className="w-full">
-              Login
+            <Button
+              disabled={!isValid || isLoading}
+              onClick={handleLoginClick}
+              className="w-full"
+            >
+              {isLoading ? "Loggin In" : "Log in"}
             </Button>
+
+            <div className="bg-gray-300 text-center p-3 w-full">
+              {error && <p className="text-red-700">{error}</p>}
+            </div>
           </div>
         </div>
       </div>

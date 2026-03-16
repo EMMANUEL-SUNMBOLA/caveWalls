@@ -1,9 +1,8 @@
-feat: add authentication scaffolding with login page and routing
+feat: add authentication and protected routing system
 
-* Added react-router-dom for client-side routing
-* Created Login page with email/password form validation
-* Added reusable Input component with password toggle and error states
-* Implemented useInput and useDebouncedInput custom hooks for form handling
-* Added validateInputs utility for multi-field validation
-* Set up auth store structure with Zustand
-* Configured centralized routes module for app navigation
+* Added authStore with login/logout functionality using Supabase
+* Created ProtectedRoutes component to guard authenticated routes
+* Integrated login page with auth store and navigation to dashboard
+* Added Dashboard page with wallpaper gallery and upload functionality
+* Updated App.jsx to wrap routes with protection
+* Removed add button from Home page (moved to Dashboard)

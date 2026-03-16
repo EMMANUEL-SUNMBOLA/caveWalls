@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase";
 import { useAlertStore } from "@/store/alertStore";
 import AddForm from "@/components/ui/AddForm";
 
-export default function Home() {
+export default function Dashboard() {
   const [images, setImages] = useState([]);
   const { showModal } = useAlertStore();
 
@@ -32,6 +32,11 @@ export default function Home() {
   useEffect(() => {
     fetchImages();
   }, []);
+
+  const handleAddWall = () => {
+    showModal(<AddForm />);
+    // console.log("caveman");
+  };
 
   const fullScreen = (url) => {
     showModal(<img src={url} />);
@@ -63,6 +68,13 @@ export default function Home() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div
+        onClick={handleAddWall}
+        className="fixed bottom-5 right-5  bg-green-300 p-4 rounded-sm hover:bg-white/20 hover:border hover:border-green-300"
+      >
+        <p className="text-3xl font-bold">+</p>
       </div>
     </div>
   );
