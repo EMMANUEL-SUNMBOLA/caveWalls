@@ -1,8 +1,7 @@
-feat: add authentication and protected routing system
+feat: extract ImageCard component for reusable image display
 
-* Added authStore with login/logout functionality using Supabase
-* Created ProtectedRoutes component to guard authenticated routes
-* Integrated login page with auth store and navigation to dashboard
-* Added Dashboard page with wallpaper gallery and upload functionality
-* Updated App.jsx to wrap routes with protection
-* Removed add button from Home page (moved to Dashboard)
+* Created ImageCard component with download, expand, and delete actions
+* Integrated ImageCard into Home and Dashboard pages
+* Added auth-based conditional delete functionality
+* Removed duplicate image card markup from multiple pages
+* Added refresh callback prop for delete operation

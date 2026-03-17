@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useAlertStore } from "@/store/alertStore";
 import AddForm from "@/components/ui/AddForm";
+import ImageCard from "@/components/ui/ImageCard";
+import { useAuthStore } from "@/store/authStore";
 
 export default function Dashboard() {
   const [images, setImages] = useState([]);
   const { showModal } = useAlertStore();
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
 
   const fetchImages = async () => {
     // 1. Supabase returns an object { data, error }, not an array [data, error]
@@ -46,27 +49,12 @@ export default function Dashboard() {
     <div className="p-10 bg-red-500 min-h-screen flex  justify-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
         {images?.map((url, index) => (
-          <div
+          <ImageCard
             key={index}
-            className="group relative rounded-xl overflow-hidden bg-slate-800 aspect-video shadow-2xl transition-transform hover:scale-[1.02]"
-          >
-            <img
-              src={url}
-              alt="Wallpaper"
-              className="w-full h-full object-cover"
-            />
-            {/* Subtle overlay on hover */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <button
-                onClick={() => {
-                  fullScreen(url);
-                }}
-                className="bg-white text-black px-4 py-2 rounded-full font-bold"
-              >
-                View Fullscreen
-              </button>
-            </div>
-          </div>
+            isAuthenticated={isAuthenticated}
+            refreshFunction={fetchImages}
+            imgUrl={url}
+          />
         ))}
       </div>
 
