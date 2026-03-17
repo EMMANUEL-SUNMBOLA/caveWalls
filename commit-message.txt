@@ -1,7 +1,4 @@
-feat: extract ImageCard component for reusable image display
+chore: add SPA redirect configuration for Netlify
 
-* Created ImageCard component with download, expand, and delete actions
-* Integrated ImageCard into Home and Dashboard pages
-* Added auth-based conditional delete functionality
-* Removed duplicate image card markup from multiple pages
-* Added refresh callback prop for delete operation
+* Add _redirects file for client-side routing support
+* Configure wildcard redirect to index.html with 200 status
