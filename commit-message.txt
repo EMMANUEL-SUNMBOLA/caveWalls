@@ -1,8 +1,6 @@
-feat: Add masonry layout and enhance modal experience
+docs: Update README with masonry features and project structure
 
-* Add react-responsive-masonry for responsive image grid layout
-* Add react-dropzone dependency for file upload functionality
-* Enhance Modal with escape key handler and glass backdrop styling
-* Add image download functionality to ImageCard component
-* Create new FileUploader component with dropzone support
-* Update Dashboard and Home pages to use masonry layout
+* Update Features section with masonry layout and download functionality
+* Add React Responsive Masonry and React Dropzone to dependencies
+* Expand Project Structure with full repository tree including public folder
+* Document all root-level configuration files

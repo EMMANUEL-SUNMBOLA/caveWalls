@@ -4,11 +4,12 @@ A beautiful and responsive wallpaper gallery application that allows users to br
 
 ## Features
 
-- **Responsive Grid Layout**: Displays wallpapers in an adaptive grid that adjusts based on screen size (1 column on mobile, up to 6 columns on large screens)
-- **Image Preview**: Hover over any wallpaper to reveal a "View Fullscreen" button for detailed viewing
+- **Masonry Layout**: Pinterest-style responsive masonry grid that adapts columns based on screen size (2 on mobile, 3 on tablet, 5 on desktop)
+- **Image Preview**: Click any wallpaper to view fullscreen in a polished modal with glass backdrop
+- **Download Wallpapers**: One-click download button on each wallpaper card
 - **Cloud Storage**: Securely stores uploaded wallpapers using Supabase storage
 - **Upload Functionality**: Easy drag-and-drop or file selection for adding new wallpapers
-- **Modal System**: Clean modal interface for both image previews and upload forms
+- **Modal System**: Enhanced modal with escape key support and smooth animations
 - **Real-time Updates**: Automatically fetches and displays newly added wallpapers
 
 ## Dependencies & Their Purpose
@@ -17,6 +18,8 @@ A beautiful and responsive wallpaper gallery application that allows users to br
 - **React 19**: JavaScript library for building user interfaces
 - **Vite**: Fast build tool and development server
 - **Zustand**: Lightweight state management solution
+- **React Responsive Masonry**: Responsive masonry layout for Pinterest-style grids
+- **React Dropzone**: File upload component with drag-and-drop support
 
 ### Styling & UI
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI development
@@ -70,11 +73,30 @@ npm run dev
 ## Project Structure
 
 ```
-src/
-├── components/     # Reusable UI components
-├── lib/           # Library configurations (Supabase client)
-├── pages/         # Page-level components
-├── store/         # Global state management (Zustand)
+caveWalls/
+├── public/            # Static public assets
+│   ├── _redirects   # Netlify redirect configuration
+│   ├── caveman.png  # App logo/icon
+│   └── vite.svg     # Vite branding
+├── src/
+│   ├── assets/      # Static assets (images, fonts, etc.)
+│   ├── components/  # Reusable UI components
+│   │   └── ui/      # Base UI components (Button, Modal, ImageCard, FileUploader)
+│   ├── hooks/       # Custom React hooks
+│   ├── lib/         # Library configurations (Supabase client)
+│   ├── pages/       # Page-level components (Home, Dashboard)
+│   ├── store/       # Global state management (Zustand stores)
+│   ├── App.css      # App-specific styles
+│   ├── App.jsx      # Main App component with routing
+│   ├── index.css    # Global styles and Tailwind directives
+│   └── main.jsx     # Application entry point
+├── .env             # Environment variables (Supabase credentials)
+├── .gitignore       # Git ignore rules
+├── components.json  # shadcn/ui configuration
+├── index.html       # HTML entry point
+├── jsconfig.json    # JavaScript path aliases
+├── package.json     # Dependencies and scripts
+└── vite.config.js   # Vite build configuration
 ```
 
 ## Technologies Used
