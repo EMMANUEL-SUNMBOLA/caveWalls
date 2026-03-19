@@ -4,6 +4,7 @@ import { useAlertStore } from "@/store/alertStore";
 import AddForm from "@/components/ui/AddForm";
 import ImageCard from "@/components/ui/ImageCard";
 import { useAuthStore } from "@/store/authStore";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 export default function Dashboard() {
   const [images, setImages] = useState([]);
@@ -41,22 +42,27 @@ export default function Dashboard() {
     // console.log("caveman");
   };
 
-  const fullScreen = (url) => {
-    showModal(<img src={url} />);
-  };
-
   return (
-    <div className="p-10 bg-red-500 min-h-screen flex  justify-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
-        {images?.map((url, index) => (
-          <ImageCard
-            key={index}
-            isAuthenticated={isAuthenticated}
-            refreshFunction={fetchImages}
-            imgUrl={url}
-          />
-        ))}
-      </div>
+    <div className="p-3 bg-red-500 min-h-screen  justify-center">
+      <ResponsiveMasonry
+        columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 5 }}
+        gutterBreakpoints={{ 350: "5px", 750: "16px", 900: "24px" }}
+      >
+        <Masonry>
+          {images?.map((url, index) => (
+            // <div
+            //   key={index}
+            //   className="group relative rounded-xl overflow-hidden bg-slate-800 aspect-video shadow-2xl transition-transform hover:scale-[1.02]"
+            // >
+            <ImageCard
+              key={index}
+              isAuthenticated={isAuthenticated}
+              imgUrl={url}
+            />
+            // </div>
+          ))}
+        </Masonry>
+      </ResponsiveMasonry>
 
       <div
         onClick={handleAddWall}

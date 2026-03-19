@@ -1,4 +1,8 @@
-chore: add SPA redirect configuration for Netlify
+feat: Add masonry layout and enhance modal experience
 
-* Add _redirects file for client-side routing support
-* Configure wildcard redirect to index.html with 200 status
+* Add react-responsive-masonry for responsive image grid layout
+* Add react-dropzone dependency for file upload functionality
+* Enhance Modal with escape key handler and glass backdrop styling
+* Add image download functionality to ImageCard component
+* Create new FileUploader component with dropzone support
+* Update Dashboard and Home pages to use masonry layout

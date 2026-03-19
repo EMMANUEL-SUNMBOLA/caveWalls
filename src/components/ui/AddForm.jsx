@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { useAlertStore } from "../../store/alertStore";
+import FileUploader from "./FileUploader";
 
 export default function AddForm() {
   const [file, setFile] = useState(null);
@@ -115,6 +116,8 @@ export default function AddForm() {
           </div>
         </div>
       )}
+
+      {/* <FileUploader /> */}
     </div>
   );
 }
