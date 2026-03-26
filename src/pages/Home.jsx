@@ -38,7 +38,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="p-10 bg-zinc-950 min-h-screen justify-center">
+    <div className="p-3 md:p-10 bg-zinc-950 min-h-screen justify-center">
       {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6"> */}
       <ResponsiveMasonry
         columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 5 }}

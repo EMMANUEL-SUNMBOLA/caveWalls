@@ -1,6 +1,7 @@
-docs: Update README with masonry features and project structure
+feat: refactor file upload flow and add masonry gallery layout
 
-* Update Features section with masonry layout and download functionality
-* Add React Responsive Masonry and React Dropzone to dependencies
-* Expand Project Structure with full repository tree including public folder
-* Document all root-level configuration files
+* Extract FileUploader component with drag-and-drop and preview functionality
+* Simplify AddForm to orchestrate upload via FileUploader
+* Add responsive masonry layout for wallpaper gallery display
+* Add manual refresh and add buttons in floating action UI
+* Fix Supabase storage API response handling

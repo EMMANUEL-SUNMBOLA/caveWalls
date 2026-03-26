@@ -5,9 +5,11 @@ import AddForm from "@/components/ui/AddForm";
 import ImageCard from "@/components/ui/ImageCard";
 import { useAuthStore } from "@/store/authStore";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { RefreshCcw } from "lucide-react";
 
 export default function Dashboard() {
   const [images, setImages] = useState([]);
+  const [popUp, setPopUp] = useState(false);
   const { showModal } = useAlertStore();
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
 
@@ -43,7 +45,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="p-3 bg-red-500 min-h-screen  justify-center">
+    <div className="bg-red-500 min-h-screen  justify-center">
       <ResponsiveMasonry
         columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 5 }}
         gutterBreakpoints={{ 350: "5px", 750: "16px", 900: "24px" }}
@@ -64,12 +66,38 @@ export default function Dashboard() {
         </Masonry>
       </ResponsiveMasonry>
 
-      <div
-        onClick={handleAddWall}
-        className="fixed bottom-5 right-5  bg-green-300 p-4 rounded-sm hover:bg-white/20 hover:border hover:border-green-300"
-      >
-        <p className="text-3xl font-bold">+</p>
+      <div className="fixed bottom-5 right-5 flex flex-col gap-2">
+        <p
+          className="text-3xl font-bold bg-green-300 p-4 rounded-sm hover:bg-white/20 border border-green-300 hover:text-white cursor-pointer"
+          onClick={() => setPopUp(true)}
+        >
+          +
+        </p>
+        <p
+          className="text-3xl font-bold bg-green-300 p-4 rounded-sm hover:bg-white/20 border border-green-300 hover:text-white cursor-pointer"
+          onClick={fetchImages}
+        >
+          <RefreshCcw />
+        </p>
       </div>
+
+      {popUp && (
+        <div
+          className="inset-0 fixed z-2 top-0 bg-white/20 backdrop-blur-sm"
+          // onClick={() => setPopUp(false)}
+        >
+          <div
+            className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+            onClick={() => setPopUp(false)}
+          />
+          <div
+            className="w-[25%] pointer-events-auto z-50 bg-white absolute top-0 right-0 h-full flex justify-center p-3 z-0 translate-x-0 transition-transform duration-300"
+            // onClick={(e) => e.preventDefault}
+          >
+            <AddForm />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
